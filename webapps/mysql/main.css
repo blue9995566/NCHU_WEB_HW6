@@ -1,0 +1,10 @@
+body{
+	background: -webkit-radial-gradient(circle,white,orange);
+}
+#div{
+	float:left;
+	padding-left: 35%;
+}
+form{
+	color:3D3DFF;
+}
