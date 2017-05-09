@@ -32,7 +32,7 @@
 %>
 <form action="all.jsp" name="form1" id="form" method="post">
 	<input type="text" name="account" value="123" hidden/>
-	<input type="submit" value="列出所有帳密" />
+	<input type="submit" value="列出所有使用者" />
 </form>
 
 </div>
