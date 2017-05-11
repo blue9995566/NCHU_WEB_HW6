@@ -1,10 +1,10 @@
-body{
-	background: -webkit-radial-gradient(circle,white,orange);
+body {
+	background-image: url(1.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
 }
-#div{
-	float:left;
-	padding-left: 35%;
-}
-form{
-	color:3D3DFF;
+#div1 {
+	opacity: 0.8;
 }

@@ -5,36 +5,53 @@
 	<title>會員系統</title>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-<div id="div">
-<%
-	if(request.getParameter("account")!=null && request.getParameter("password")!=null){
-		String sql = "select * from hw6 where account=? && password=?;";
-		pstmt=con.prepareStatement(sql);
-		pstmt.setString(1,request.getParameter("account"));
-		pstmt.setString(2,request.getParameter("password"));
-		rs=pstmt.executeQuery();
-		if (rs.next()){
-			String account=rs.getString("account");
-			String birthday=rs.getString("birthday");
-			String memo=rs.getString("memo");
-			out.println(account+"--登入成功<br>");
-			out.println("生日:"+birthday+"<br>");
-			out.println("Memo:"+memo+"<br>");
-			out.println("<input type='button' onclick='location.href=\"index.html\"' value='登出' />");
-		}else{
-			out.println("--登入失敗");
-			out.println("<input type='button' onclick='location.href=\"index.html\"' value='上一頁' />");
-		}
-	}
-%>
-<form action="all.jsp" name="form1" id="form" method="post">
-	<input type="text" name="account" value="123" hidden/>
-	<input type="submit" value="列出所有使用者" />
-</form>
-
+<div class="container">
+	<div id="div1">
+		<div class="jumbotron">
+			<h3 align="center">會員系統</h3>
+		</div>
+	</div>
+	<div class="row">
+		 <div class="col-md-2"></div>
+		 <div class="col-md-8" align="center">
+			<%
+				if(request.getParameter("account")!=null && request.getParameter("password")!=null){
+					String sql = "select * from hw6 where account=? && password=?;";
+					pstmt=con.prepareStatement(sql);
+					pstmt.setString(1,request.getParameter("account"));
+					pstmt.setString(2,request.getParameter("password"));
+					rs=pstmt.executeQuery();
+					if (rs.next()){
+						String account=rs.getString("account");
+						String birthday=rs.getString("birthday");
+						String memo=rs.getString("memo");
+			%>
+						<h3><%=account%>---登入成功</h3>
+						<h3>生日:<%=birthday%></h3>
+						<h3>Memo:<%=memo%></h3>
+						<button type="button" class="btn btn-danger" onclick="location.href='index.html'"><span class="glyphicon glyphicon-log-out"></span>登出</button>
+						<br><br>
+						<form action="all.jsp" name="form1" id="form" method="post">
+							<input type="text" name="asd" value="123" hidden/>
+							<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign">列出所有使用者</button>
+						</form>
+			<%			
+					}else{
+			%>
+						<h3>登入失敗</h3>
+						<button type="button" class="btn btn-primary" onclick=window.location.href="index.html"><span class="glyphicon glyphicon-home"></span>回首頁</button>
+			<%
+					}
+				}
+			%>
+		</div>
+		 <div class="col-md-2"></div>
+	</div>
 </div>
 </body>
 </html>

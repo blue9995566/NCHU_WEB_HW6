@@ -3,17 +3,40 @@
 	<title>會員系統</title>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="div">
-<fieldset>
-	<legend>NCHU</legend>
-	<form action="login.jsp" name="form1" id="form" method="post">
-	帳號:<input type="text" name="account" required>
-	<br>密碼:<input type="password" name="password" required>
-	<br><input type="button" onclick="location.href='register.jsp'" value="註冊" /><input type="submit" value="登入" />
-	</form>
-</fieldset>
+
+<div class="container">
+	<div id="div1">
+		<div class="jumbotron">
+			<h3 align="center">會員系統</h3>
+		</div>
+	</div>
+	<div class="row">
+		 <div class="col-md-2"></div>
+		 <div class="col-md-8" align="center">
+			<fieldset>
+				<form action="login.jsp" name="form1" id="form" method="post">
+				<div class="col-xs-4">
+				</div>
+				<div class="col-xs-4">
+					<label>帳號</label>
+					<input type="text" class="form-control" name="account" required>
+					<label>密碼</label>
+					<input type="password" class="form-control" name="password" required><br>
+					<button type="button" class="btn btn-success" onclick="location.href='register.jsp'"><span class="glyphicon glyphicon-plus-sign"></span>註冊</button>
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>登入</button>
+				</div>
+				<div class="col-xs-4">
+				</div>
+				</form>
+			</fieldset>
+		 </div>
+		 <div class="col-md-2"></div>
+	</div>
 </div>
 </body>
 </html>

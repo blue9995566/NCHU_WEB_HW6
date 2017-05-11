@@ -5,9 +5,20 @@
 	<title>會員系統</title>
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="div">
+<div class="container">
+	<div id="div1">
+		<div class="jumbotron">
+			<h3 align="center">會員系統</h3>
+		</div>
+	</div>
+	<div class="row">
+		 <div class="col-md-2"></div>
+		 <div class="col-md-8" align="center">
 <%
 	if(request.getParameter("account")!=null && request.getParameter("password")!=null&& request.getParameter("birthday")!=null&& request.getParameter("memo")!=null){
 		String sql = "select * from hw6 where account=?;";
@@ -29,16 +40,27 @@
 		}
 	}
 %>
-<fieldset>
-	<legend>註冊</legend>
-	<form action="register.jsp" name="form1" id="form" method="post">
-	帳號:<input type="text" name="account" required>
-	<br>密碼:<input type="password" name="password" required>
-	<br>生日:<input type="date" name="birthday" value="1994-11-03" required>
-	<br>Memo<textarea name="memo" rows="4" cols="50" style="resize:none" required></textarea>
-	<br><input type="submit" value="註冊" />
-	</form>
-</fieldset>
+		
+			<form action="register.jsp" name="form1" id="form" method="post">
+			<div class="col-xs-3">
+			</div>
+			<div class="col-xs-6">
+				<label>帳號</label>
+				<input type="text" class="form-control" name="account" required>
+				<label>密碼</label>
+				<input type="password" class="form-control" name="password" required>
+				<label>生日</label>
+				<input type="date" class="form-control" name="birthday" value="1994-11-03" required>
+				<label>Memo</label>
+				<textarea name="memo" class="form-control" rows="4" cols="50" style="resize:none" required></textarea>
+				<br><button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>註冊</button>
+			</div>
+			<div class="col-xs-3">
+			</div>
+			</form>
+		 </div>
+		 <div class="col-md-2"></div>
+	</div>
 </div>
 </body>
 </html>
