@@ -40,7 +40,7 @@
 		}
 	}
 %>
-		
+
 			<form action="register.jsp" name="form1" id="form" method="post">
 			<div class="col-xs-3">
 			</div>

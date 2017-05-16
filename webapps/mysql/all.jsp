@@ -20,6 +20,9 @@
 	<div class="row">
 		 <div class="col-md-2"></div>
 		 <div class="col-md-8" align="center">
+			 <% String login = (String) session.getAttribute("login");
+			 if (login =="OK"){
+			%>
 			<table class="table">
 			<tr>
 				<th>帳號</th>
@@ -28,7 +31,6 @@
 				<th>Memo</th>
 			 </tr>
 			<%
-				if(request.getParameter("asd")!=null){
 					String sql = "select * from hw6;";
 					pstmt=con.prepareStatement(sql);
 					rs=pstmt.executeQuery();
@@ -37,7 +39,7 @@
 						String password=rs.getString("password");
 						String birthday=rs.getString("birthday");
 						String memo=rs.getString("memo");
-			%>	
+			%>
 				<tr>
 					<td><%=account%></td>
 					<td><%=password%></td>
@@ -46,10 +48,15 @@
 				 </tr>
 			<%
 					}
-				}
 			%>
 			</table>
 			<button type="button" class="btn btn-primary" onclick=window.location.href="index.html"><span class="glyphicon glyphicon-home"></span>回首頁</button>
+			<%
+				}else{
+					response.setHeader("Refresh" , "1;url=index.html");
+					out.println("U have to login");
+				}
+			%>
 		</div>
 		 <div class="col-md-2"></div>
 	</div>

@@ -27,6 +27,7 @@
 					pstmt.setString(2,request.getParameter("password"));
 					rs=pstmt.executeQuery();
 					if (rs.next()){
+						session.setAttribute("login","OK") ;
 						String account=rs.getString("account");
 						String birthday=rs.getString("birthday");
 						String memo=rs.getString("memo");
@@ -34,13 +35,10 @@
 						<h3><%=account%>---登入成功</h3>
 						<h3>生日:<%=birthday%></h3>
 						<h3>Memo:<%=memo%></h3>
-						<button type="button" class="btn btn-danger" onclick="location.href='index.html'"><span class="glyphicon glyphicon-log-out"></span>登出</button>
+						<button type="button" class="btn btn-danger" onclick="location.href='logout.jsp'"><span class="glyphicon glyphicon-log-out"></span>登出</button>
 						<br><br>
-						<form action="all.jsp" name="form1" id="form" method="post">
-							<input type="text" name="asd" value="123" hidden/>
-							<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-info-sign">列出所有使用者</button>
-						</form>
-			<%			
+						<button type="button" class="btn btn-primary" onclick="location.href='all.jsp'"><span class="glyphicon glyphicon-info-sign">列出所有使用者</button>
+			<%
 					}else{
 			%>
 						<h3>登入失敗</h3>
