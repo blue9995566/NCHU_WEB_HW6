@@ -6,8 +6,22 @@
 	<meta charset="UTF-8">
     <link rel="stylesheet" href="./main.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script language="JavaScript">
+	$(document).ready(function() {
+		$('#account').blur(function(){
+			//alert("blur");
+			var name= $('#account').val();
+			//alert(name);
+			$.post("check.jsp", {account:name}, function(response){
+				$('#check').html(response);
+			//alert(response);
+			} );
+		});
+	});
+	</script>
+
 </head>
 <body>
 <div class="container">
@@ -46,7 +60,7 @@
 			</div>
 			<div class="col-xs-6">
 				<label>帳號</label>
-				<input type="text" class="form-control" name="account" required>
+				<input type="text" class="form-control" name="account" required id="account"><div id="check" class=""></div>
 				<label>密碼</label>
 				<input type="password" class="form-control" name="password" required>
 				<label>生日</label>
